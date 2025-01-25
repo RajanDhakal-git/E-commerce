@@ -10,10 +10,14 @@ const MyContextAPI = ({ children }) => {
    useEffect(() => {
      getData()
    }, [])
+
    const [cartitems, setcartitems] = useState(0)
     const [Allproducts, setAllproducts] = useState([])
+    let handleonclick = ()=>{
+        setcartitems(prev=> prev+1)
+    }
     return (
-        <MyContext.Provider value={{ Allproducts , cartitems , setcartitems }}>
+        <MyContext.Provider value={{ Allproducts , cartitems , setcartitems , handleonclick }}>
             <div>{children}</div>
         </MyContext.Provider>
     )
