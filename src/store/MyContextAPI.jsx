@@ -13,11 +13,17 @@ const MyContextAPI = ({ children }) => {
 
    const [cartitems, setcartitems] = useState(0)
     const [Allproducts, setAllproducts] = useState([])
-    let handleonclick = ()=>{
+    const [itemlist, setitemlist] = useState([])
+    let handleonclick = (...alldata)=>{
+       
+        setitemlist(prev=>[ ...prev ,{ productId:alldata[0],
+            productname:alldata[3],
+            productphoto: alldata[2]?.length && alldata[2][0],
+            productprice:alldata[1]}])
         setcartitems(prev=> prev+1)
     }
     return (
-        <MyContext.Provider value={{ Allproducts , cartitems , setcartitems , handleonclick }}>
+        <MyContext.Provider value={{ Allproducts , cartitems , setcartitems , handleonclick,itemlist  }}>
             <div>{children}</div>
         </MyContext.Provider>
     )

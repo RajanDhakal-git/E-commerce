@@ -15,7 +15,7 @@ const Card = ({title , price , photo , id}) => {
         <div>${price}</div>
 
        <div className='flex flex-col gap-3'> 
-        <button onClick={handleonclick} className='px-5 pyp-2 bg-orange-300 rounded-md text-white'>Add to card</button>
+        <button onClick={ ()=> handleonclick(id , price , photo , title)} className='px-5 py-2 bg-orange-300 rounded-md text-white'>Add to card</button>
        <button onClick={()=> navi(`card/${id}`) } className='px-5 pyp-2 bg-orange-300 rounded-md text-white'>Details</button>
        </div>
     </div>

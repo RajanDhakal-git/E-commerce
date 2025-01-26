@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import MyContextAPI from './store/MyContextAPI'
 import Home from "./components/Home"
 import Itemdesc from "./components/Itemdesc"
+import CartItems from "./components/CartItems"
 
 const App = () => {
   let route = createBrowserRouter(
@@ -14,15 +15,18 @@ const App = () => {
       {
         path:'/card/:id',
         element:<Itemdesc/>
+      },
+      {
+        path:'/cartitems',
+        element:<CartItems/>
       }
     ]
   )
   return (
-   <MyContextAPI>
-     <Navbar />
     <RouterProvider router={route}> 
-    </RouterProvider>
+   <MyContextAPI>
    </MyContextAPI>
+    </RouterProvider>
   )
 }
 
